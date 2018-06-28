@@ -411,10 +411,16 @@ li.red-menu_nav a{
     overflow-y: auto;
     padding-bottom: 55px;
 }
+.notif-content{
+    margin-top: 4rem
+}
 .notif-overlay .nav-content{
     background: white;
     padding: 0px;
-    margin-bottom: 0px
+    margin-bottom: 0px;
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
 }
 .nav-content .header-nav{
     margin-left: auto;
