@@ -84,11 +84,11 @@
                                 <ul class="nav nav-tabs ">
                                     <li class="active">
                                         <a href="#promos-content" data-toggle="tab">
-                                        Promo <span class="badge alert notif-badge" id="notif-count">6</span></a>
+                                        Promo <span class="badge notif-badge" id="notif-count_promos"></span></a>
                                     </li>
                                     <li>
-                                        <a href="#activity-content" data-toggle="tab">
-                                        Aktivitas <span class="badge alert notif-badge" >6</span></a>
+                                        <a href="#activity-content" data-toggle="tab" id="notif-activity">
+                                        Aktivitas <span class="badge alert notif-badge" id="notif-activity_num">6</span></a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -276,6 +276,12 @@
                     $('.notif-overlay').css('display', 'block');
                     $('body').addClass('body-overflow-no-scroll');
                 });
+                $('#notif-activity').click(function(){
+                    setTimeout(function(){
+                        $('#notif-activity_num.badge').removeClass('alert');
+                        $('#notif-activity_num').text("");
+                    },250);
+                })
                 /* start notif */
                 $('.button-badge').click(function(){
                     $('#notif-count.badge').removeClass('alert');
