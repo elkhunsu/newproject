@@ -15,6 +15,14 @@ body{
     transition: background-color .5s;
 }
 
+.body-overflow-no-scroll{
+    position: absolute;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    max-width: 100%;
+    width: 100%;
+}
 .main{
     background: #EAEAF1;
   color: #333332;
@@ -26,10 +34,8 @@ body{
 
 .nav-content{
     display: flex;
-    padding-left: 16px;
-    padding-top: 10px;
-/*    padding-bottom: 10px;*/
-    padding-right: 16px;
+    padding: 10px 16px 6px 16px;
+    height: 48px
 }
 .main-navigation{
     background: white;
@@ -171,23 +177,32 @@ ul{
 }
 
 .badge{
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  font-size: .8em;
-  display: inline-block;
-  min-width: 2em;
-  padding: 3px;
-  border-radius: 50%;
-  font-size: 0.8rem;
-  text-align: center;
-  background: #1779ba;
-  color: #fefefe;
-}
-.badge.alert{
-    background: #cc4b37;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: .8em;
+    display: inline-block;
+    min-width: 2em;
+    padding: 3px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    text-align: center;
+    background: #1779ba;
     color: #fefefe;
 }
+.badge.alert{
+  background: #cc4b37;
+  color: #fefefe;
+}
+
+/*badge notif content*/
+.badge.notif-badge{
+    position: initial;
+    font-size: 12px;
+    width: 32px;
+    border-radius: 20px;
+}
+
 /*End notification box*/
 
 .users-sign{
@@ -384,7 +399,8 @@ li.red-menu_nav a{
 
 /* notification overlay */
 .notif-overlay{
-    background-color: #f1f1f1;
+    display: none;
+    background-color: #ffffff;
     border: 1px solid #e0e0e0;
     position: fixed;
     top: 0;
@@ -412,7 +428,7 @@ li.red-menu_nav a{
     line-height: 2.8;
     margin-left: 18px;
     padding-right: 20px;
-    border-right: 1px solid #bfbfbfaa;
+/*    border-right: 1px solid #bfbfbfaa;*/
 }
 /*
 .triangle{
@@ -429,6 +445,190 @@ li.red-menu_nav a{
     position: relative;
 }
 */
+
+/* tab pane css notif */
+
+/* Tabs panel */
+.tabbable-panel {
+    border-top:1px solid #eee;
+    padding: 10px;
+}
+
+.tabbable-line > .nav-tabs {
+  border: none;
+  margin: 0px;
+  display: flex;
+}
+.tabbable-line > .nav-tabs > li {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    text-align: center;
+}
+.tabbable-line > .nav-tabs > li > a {
+  border: 0;
+  margin-right: 0;
+  color: #C7C7C7;
+}
+.tabbable-line > .nav-tabs > li > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {
+  border-bottom: 4px solid #fbcdcf;
+}
+.tabbable-line > .nav-tabs > li.open > a, .tabbable-line > .nav-tabs > li:hover > a {
+  border: 0;
+/*  background: none !important;*/
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.open > a > i, .tabbable-line > .nav-tabs > li:hover > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open .dropdown-menu, .tabbable-line > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+.tabbable-line > .nav-tabs > li.active {
+  border-bottom: 2px solid #f3565d;
+  position: relative;
+}
+.tabbable-line > .nav-tabs > li.active > a {
+  border: 0;
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+.tabbable-line > .tab-content {
+  background-color: #fff;
+  border: 0;
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+}
+.tabbable-line > .nav-tabs > li:first-child{
+    border-right: 1px solid #eaeaea
+}
+.portlet .tabbable-line > .tab-content {
+  padding-bottom: 0;
+}
+
+/* achievement box promos*/
+.tab-box_promos{
+    display: flex;
+    margin-top: 10px;
+      overflow:hidden;
+  height:90px;
+}
+div.box-content_promos{
+  box-sizing:border-box;
+  position: relative;
+  background-color: #FFFFFF;
+  height: 90px;
+  width: 75%;
+  border: solid #F7B315 0.5px;
+    padding: 7px
+}
+div.box-content_title{
+  box-sizing:border-box;
+  position: relative;
+  background-color: #F7B315;
+  height: 90px;
+  width: 111px;
+  border: solid #F7B315 0.5px;
+    padding: 7px
+}
+.top, .bottom {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  
+}
+
+.top:before, .top:after, .bottom:before, .bottom:after{
+  content:" ";
+  position:absolute;
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+  border: solid #F7B315 0.5px;
+  border-radius: 20px; 
+}
+
+.top:before {
+top: -10px;
+    left: -10px;
+}
+
+.top:after {
+top: -10px;
+    left: -10px;
+}
+
+.bottom:before {
+  bottom:-10px;
+  left:-10px;
+}
+
+.bottom:after {
+ bottom: -24px;
+ right: -24px; 
+}
+.tab-box_promos a{
+    text-decoration: none
+}
+.box-promos_content{
+    font-size: 14px;
+    line-height: normal
+}
+.box-promos_content._right{
+    font-size: 14px;
+    line-height: normal;
+    margin: 0px;
+    height: 100%;
+    padding: 5px;
+    border-radius: 5%;
+    background-color: white;
+    text-align: center;
+    line-height: 150%;
+}
+.box-promos_content .title-content{
+    display: block
+}
+.box-promos_content .promos-info{
+    font-size: 10px
+}
+.box-promos_content .title-content_right{
+    text-align: center
+}
+#promos-content .load-more ,#activity-content .load-more{
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 0px;
+    background-color: #094664;
+    border-color: #094664;
+}
+
+/* activity notif */
+.tab-box_content .title-activity{
+    display: block;
+    font-size: 16px
+}
+.tab-box_content .content-activity{
+    display: block;
+    font-size: 12px
+}
+.tab-box_content .time-activity{
+    display: block;
+    font-size: 10px
+}
+
+.tab-box_content {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
 @media screen and (max-width: 450px) {
   .site-nav {padding-top: 15px;}
   .site-nav a {font-size: 18px;}

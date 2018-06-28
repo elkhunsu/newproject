@@ -74,11 +74,129 @@
 
             <div id="main">
                     <div class="notif-overlay">
-                        <ul class="nav-content">
+                        <ul class="nav-content block-nav">
                             <li class="back-button"><i class="fa fa-arrow-left" aria-hidden="true"></i></li>
                             <li class="header-nav">Pemberitahuan</li>
                         </ul>
-                        <div class="notif-content"></div>
+                        <div class="notif-content">
+                        <div class="tabbable-panel">
+                            <div class="tabbable-line">
+                                <ul class="nav nav-tabs ">
+                                    <li class="active">
+                                        <a href="#promos-content" data-toggle="tab">
+                                        Promo <span class="badge alert notif-badge" id="notif-count">6</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#activity-content" data-toggle="tab">
+                                        Aktivitas <span class="badge alert notif-badge" >6</span></a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="promos-content">
+                                        <div class="tab-box_promos">
+                                            <div class="box-content_promos">
+                                                <div class="box-promos_content">
+                                                    <span class="title-content">
+                                                    Tahun Baruan Dapet Pulsa
+                                                    </span>
+                                                    <span class="promos-info">
+                                                    Dapatkan Ekstra Cashback 20% dari LOOP pada setiap pembelian paket di tanggal 12-30 Maret 2018
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="box-content_title">
+                                                <div class="top"></div>
+                                                <div class="box-promos_content _right">
+                                                    <span class="title-content_right">
+                                                    Kode Voucher Loop
+                                                    </span>
+                                                </div>
+                                                <div class="bottom"></div>
+                                            </div>
+                                        </div>
+                                        <a class="tab-box_promos" href="#">
+                                            <div class="box-content_promos">
+                                                <div class="box-promos_content">
+                                                    <span class="title-content">
+                                                    Internet  Vaganza 8 GB Rp70 ribuan
+                                                    </span>
+                                                    <span class="promos-info">
+                                                    Dapatkan Ekstra Cashback 20% dari LOOP pada setiap pembelian paket di tanggal 12-30 Maret 2018
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="box-content_title">
+                                                <div class="top"></div>
+                                                <div class="box-promos_content _right">
+                                                    <span class="title-content_right">
+                                                    Kode Voucher Loop
+                                                    </span>
+                                                </div>
+                                                <div class="bottom"></div>
+                                            </div>
+                                        </a>
+                                        <a class="tab-box_promos" href="#">
+                                            <div class="box-content_promos">
+                                                <div class="box-promos_content">
+                                                    <span class="title-content">
+                                                    Internet  Vaganza 8 GB Rp70 ribuan
+                                                    </span>
+                                                    <span class="promos-info">
+                                                    Dapatkan Ekstra Cashback 20% dari LOOP pada setiap pembelian paket di tanggal 12-30 Maret 2018
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="box-content_title">
+                                                <div class="top"></div>
+                                                <div class="box-promos_content _right">
+                                                    <span class="title-content_right">
+                                                    Kode Voucher Loop
+                                                    </span>
+                                                </div>
+                                                <div class="bottom"></div>
+                                            </div>
+                                        </a>
+                                        <a class="tab-box_promos" href="#">
+                                            <div class="box-content_promos">
+                                                <div class="box-promos_content">
+                                                    <span class="title-content">
+                                                    Internet  Vaganza 8 GB Rp70 ribuan
+                                                    </span>
+                                                    <span class="promos-info">
+                                                    Dapatkan Ekstra Cashback 20% dari LOOP pada setiap pembelian paket di tanggal 12-30 Maret 2018
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="box-content_title">
+                                                <div class="top"></div>
+                                                <div class="box-promos_content _right">
+                                                    <span class="title-content_right">
+                                                    Kode Voucher Loop
+                                                    </span>
+                                                </div>
+                                                <div class="bottom"></div>
+                                            </div>
+                                        </a>
+                                        <div class="btn btn-primary load-more">Aktivitas Lainnya</div>
+                                    </div>
+                                    <div class="tab-pane" id="activity-content">
+                                        <div class="tab-box_content">
+                                             <span class="title-activity">100 Koin Loopiah!</span>
+                                             <span class="content-activity">Selamat kamu mendapatkan 100 Koin LOOPiah dari login harian di loop.co.id</span>
+                                            <span class="time-activity">12 Maret 2018 14:15 WIB</span>
+                                        </div>
+                                        <div class="tab-box_content">
+                                             <span class="title-activity">100 Koin Loopiah!</span>
+                                             <span class="content-activity">Selamat kamu mendapatkan 100 Koin LOOPiah dari login harian di loop.co.id</span>
+                                            <span class="time-activity">12 Maret 2018 14:15 WIB</span>
+                                        </div>
+                                        <div class="btn btn-primary load-more">Aktivitas Lainnya</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 <div class="main-navigation">
                     <ul class="nav-content open-nav" role="navigation">
@@ -147,7 +265,17 @@
                     body.removeClass('site-nav-drawer-open site-nav-transition');
                     body.removeClass("site-nav-transition");
                 });
-
+                
+                /* back button notif */
+                $('.back-button').click(function(){
+                    $('.notif-overlay').css('display', 'none');
+                    $('body').removeClass('body-overflow-no-scroll');
+                })
+                
+                $('.notif-badge').click(function(){
+                    $('.notif-overlay').css('display', 'block');
+                    $('body').addClass('body-overflow-no-scroll');
+                });
                 /* start notif */
                 $('.button-badge').click(function(){
                     $('#notif-count.badge').removeClass('alert');
