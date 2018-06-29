@@ -157,6 +157,14 @@ ul{
     margin-right: 16px;
 }
 
+.dropdown-toggle .fa-angle-down{
+    float: right;
+    margin: 9px
+}
+.dropdown-toggle .fa-angle-up{
+    float: right;
+    margin: 9px
+}
 /*notification box*/
 .notif-badge{
     margin: 3px
@@ -333,6 +341,11 @@ ul{
 }
 .red-menu_nav{
     background: red;
+    bottom: 0;
+    position: fixed !important;
+    max-width: 300px;
+    z-index: 9999;
+    box-shadow: 0 -5px 12px -6px #000000;
 }
 red-menu_nav:hover{
     background: #e20000
@@ -397,8 +410,12 @@ li.red-menu_nav a{
 
 /*end sprite menu*/
 
+/*users overlay*/
+.user-overlay_content{
+    margin-top: 5em
+}
 /* notification overlay */
-.notif-overlay{
+.notif-overlay, .user-overlay{
     display: none;
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
@@ -409,18 +426,18 @@ li.red-menu_nav a{
     width: 100%;
     z-index: 9998;
     overflow-y: auto;
-    padding-bottom: 55px;
 }
-.notif-content{
+.overlay-content_notif{
     margin-top: 4rem
 }
-.notif-overlay .nav-content{
+.notif-overlay .nav-content, .nav-content.block-nav{
     background: white;
     padding: 0px;
     margin-bottom: 0px;
     position: fixed;
     z-index: 99999;
     width: 100%;
+    box-shadow: 0 5px 16px -9px #000000
 }
 .nav-content .header-nav{
     margin-left: auto;
@@ -608,11 +625,18 @@ top: -10px;
     text-align: center
 }
 #promos-content .load-more ,#activity-content .load-more{
-    margin-top: 10px;
+    margin: 10px;
+    left: -10px;
     width: 100%;
     border-radius: 0px;
     background-color: #094664;
     border-color: #094664;
+    bottom: -10px;
+    position: fixed;
+    height: 48px;
+    line-height: 2;
+    box-shadow: 0 5px 19px 3px #000000;
+    z-index: 999;
 }
 
 /* activity notif */
