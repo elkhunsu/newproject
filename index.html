@@ -12,6 +12,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="./assets/css/header.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/themes/vader/jquery-ui.min.css" rel="stylesheet">
         <!-- ending link CSS -->
     </head>
 
@@ -204,7 +205,7 @@
                     </ul>
                     <div class="user-overlay_content">
                         <div class="menu-users">
-                            <ul>
+                            <ul class="nav sidebar-nav">
                                 <li>
                                 <a href="#"><div class="icon-sprite-menu _home"></div> Beranda</a>
                                 </li>
@@ -243,6 +244,7 @@
                 </div><!-- main-navigation -->
 
                 <div class="content-main">
+                    <ul id="menu"></ul>
                   <h2>Lorem ipsum dolor sit amet</h2>
                   <p>usu volumus persecuti id, vel ad mundi concludaturque, his vidit munere ad. Adolescens eloquentiam concludaturque duo ei, an autem deterruisset has, ut sit amet corpora qualisque. Pri graece postea rationibus in, case officiis contentiones cu pro, ius ea graece denique. Modus possim per at, te mel option recteque. An vel congue appetere, eum ad viderer reformidans. Eos sanctus corpora eu, ius laoreet indoctum ne.
 
@@ -260,6 +262,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.2/rails.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
         
         <script>
             $(function(){
@@ -324,13 +327,22 @@
                         var x = 1;
                     } else {
                         var x = parseInt(x)+1;
-                    }
-                    if(x => 99){
-                        var x = "99+"
-                    }
+                    } 
+                    if(x >= 99){
+                        var x = "99+";
+                    } 
                     $('#notif-count').text(x);
                 }
                 
+                $(window).scroll(function() {
+                    var scroll = $(window).scrollTop();
+                    var header = $('.nav-content');
+                    if (scroll >= 100) {
+                        header.addClass("scroll");
+                    } else {
+                        header.removeClass("scroll");
+                    }
+                });
                 setInterval(function(){
                         var x = $('#notif-count').text();
                         alertNotif(x);
@@ -338,5 +350,87 @@
             })
         </script>
         <!-- Ending Script tag -->
+        <script>
+            var data = {
+                menu: [{
+                    name: 'Croatia',
+                    link: '0',
+                    sub: null
+                }, {
+                    name: 'England',
+                    link: '1',
+                    sub: [{
+                        name: 'Arsenal',
+                        link: '0-0',
+                        sub: null
+                    }, {
+                        name: 'Liverpool',
+                        link: '0-1',
+                        sub: null
+                    }, {
+                        name: 'Manchester United',
+                        link: '0-2',
+                        sub: null
+                    }]
+                }, {
+                    name: 'Spain',
+                    link: '2',
+                    sub: [{
+                        name: 'Barcelona',
+                        link: '2-0',
+                        sub: null
+                    }, {
+                        name: 'Real Madrid',
+                        link: '2-1',
+                        sub: null
+                    }]
+                }, {
+                    name: 'Germany',
+                    link: '3',
+                    sub: [{
+                        name: 'Bayern Munich',
+                        link: '3-1',
+                        sub: null
+                    }, {
+                        name: 'Borrusia Dortmund',
+                        link: '3-2',
+                        sub: null
+                    }]
+                }]
+            };
+            var getMenuItem = function (itemData) {
+                //buat dua kondisi ketika tidak ada sub maka ada div didalam a
+                var item = $("<li>")
+                    .append(
+                $("<a>", {
+                    href: '#' + itemData.link,
+                    html: itemData.name
+                }));
+                
+                
+                if (itemData.sub) {
+                    var subList = $("<ul class='dropdown-menu' role='menu'>");
+                    $.each(itemData.sub, function () {
+                        subList.append(getMenuItem(this));
+                    });
+                    var divs = "";
+                    var dropdown = $("<li class='dropdown'>")
+                            .append(
+                                "<a class='dropdown-toggle' data-toggle='dropdown' href='"+itemData.link+"'>"+itemData.name+"</a>"
+                                );
+                    dropdown.append(subList);
+                    return dropdown;
+                }
+                return item;
+            };
+
+            var $menu = $("#menu");
+            $.each(data.menu, function () {
+                $menu.append(
+                    getMenuItem(this)
+                );
+            });
+            //$menu.menu();
+        </script>
     </body>
 </html>

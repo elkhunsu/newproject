@@ -35,7 +35,14 @@ body{
 .nav-content{
     display: flex;
     padding: 10px 16px 6px 16px;
-    height: 48px
+/*    height: 48px;*/
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: 0 5px 16px -9px #000000;
+}
+.nav-content.scroll{
+    height: 48px;
+    transition: height 0.25s ease-in;
 }
 .main-navigation{
     background: white;
