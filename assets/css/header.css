@@ -287,6 +287,7 @@ ul{
 .sidebar-nav {
     list-style: none;
     margin: 0;
+    margin-bottom: 60px;
     padding: 0;
     position: absolute;
     top: 0;
@@ -346,7 +347,6 @@ ul{
 
 #menu-sidebar{
     margin-top: 30px;
-    height: 106%
 }
 
 #main{
@@ -425,13 +425,46 @@ li.red-menu_nav a{
     background-size: 257px;
     background-color: white;
 }
+/*sprite menu user*/
+.icon-sprite-menu._feed{
+    background: url(../images/icon-user-sprite.png) -8px 1px;
+    background-size: 257px;
+    background-color: white;
+}
+.icon-sprite-menu._community{
+    background: url(../images/icon-user-sprite.png) -46px 1px;
+    background-size: 257px;
+    background-color: white;
+}
+.icon-sprite-menu._shareyourstory{
+    background: url(../images/icon-user-sprite.png) -80px 1px;
+    background-size: 257px;
+    background-color: white;
+}
+.icon-sprite-menu._loopsquad{
+    background: url(../images/icon-user-sprite.png) -115px 1px;
+    background-size: 257px;
+    background-color: white;
+}
+.icon-sprite-menu._loopiah{
+    background: url(../images/icon-user-sprite.png) -151px 1px;
+    background-size: 257px;
+    background-color: white;
+}
+.icon-sprite-menu._redeemcenter{
+    background: url(../images/icon-user-sprite.png) -186px 1px;
+    background-size: 257px;
+    background-color: white;
+}
+
+.icon-sprite-menu._signout{
+    background: url(../images/icon-user-sprite.png) -225px 1px;
+    background-size: 257px;
+    background-color: white;
+}
 
 /*end sprite menu*/
 
-/*users overlay*/
-.user-overlay_content{
-    margin-top: 5em
-}
 /* notification overlay */
 .notif-overlay, .user-overlay{
     display: none;
@@ -681,16 +714,62 @@ top: -10px;
 .avatar_user{
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
     width: 20%;
     text-align: center;
 }
 .avatar {
     vertical-align: middle;
-    width: 50px;
-    height: 50px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
 }
 
+/*users overlay*/
+.user-overlay_content{
+    margin-top: 4em;
+    font-size: 14px
+}
+.info-user{
+    height: 200px
+}
+.name-user{
+    text-align: center;
+}
+.level-user{
+    text-align: center;
+    font-size: 12px
+}
+.poin-users{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.loopsquad{
+    float: right;
+    width: 15%;
+    font-size: 12px;
+}
+.loopiah{
+    float: left;
+    width: 15%;
+    font-size: 12px;
+}
+.menu-users{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.notif-user_poin{
+    float: right;
+    border-radius: 20px;
+    width: 125px;
+    font-size: 12px;
+    background: #094664;
+    color: white;
+    text-align: center;
+    margin: 6px;
+    padding: 2px;
+}
 @media screen and (max-width: 450px) {
   .site-nav {padding-top: 15px;}
   .site-nav a {font-size: 18px;}

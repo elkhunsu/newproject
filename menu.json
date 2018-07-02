@@ -1,6 +1,0 @@
-{
-   menu: 
-      [
-         {name: 'Beranda', link: '#', class: 'icon-sprite-menu _home',sub: null},
-      ]
-}

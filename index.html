@@ -161,25 +161,25 @@
                             <div class="avatar_user">
                                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
                             </div>
-                            <div class="name_user">
+                            <div class="name-user">
                                 <span>KIM JAEHA</span>
                             </div>
-                            <div class="level_user"></div>
+                            <div class="level-user">
+                                <span class="">Level 5 | Newbie</span>
+                            </div>
                             <div class="poin-users">
-                                <div class="loopiah"></div>
-                                <div class="loopsquad"></div>
+                                <div class="loopiah">
+                                    <span>LOOPiah Koin</span>
+                                    <span>53.200</span>
+                                </div>
+                                <div class="loopsquad">
+                                    <span>LOOPiah Koin</span>
+                                    <span>53.200</span>
+                                </div>
                             </div>
                         </div>
                         <div class="menu-users">
-                            <ul class="nav menu-users_nav">
-                                <li>
-                                <a href="#"><div class="icon-sprite-menu _home">
-                                    </div> Beranda</a>
-                                </li>
-                                <li>
-                                    <a href="#"><div class="icon-sprite-menu _account">
-                                        </div> Akun Saya</a>
-                                </li>
+                            <ul class="nav menu-users_nav" id="menu-user_nav">
                             </ul>
                         </div>
                     </div>
@@ -257,6 +257,7 @@
                 $('.back-button').click(function(){
                     $('.notif-overlay').css('display', 'none');
                     $('.user-overlay').css('display', 'none');
+                    $('.content-main').show();
                     $('body').removeClass('body-overflow-no-scroll');
                 })
                 
@@ -267,6 +268,7 @@
                 
                 $('.users-sign').click(function(){
                     $('.user-overlay').css('display', 'block');
+                    $('.content-main').hide();
                     $('body').addClass('body-overflow-no-scroll');
                 })
                 
@@ -472,6 +474,91 @@
                 );
             });
             //$menu.menu();
+        </script>
+        
+        <!-- start menu user -->
+        <script>
+        var menu_user = {
+                menu: [{
+                    name: 'Akun Saya',
+                    link: '0',
+                    class: 'icon-sprite-menu _account',
+                    sub: null
+                }, {
+                    name: 'Feed',
+                    link: '0',
+                    class: 'icon-sprite-menu _feed',
+                    sub: null
+                }, {
+                    name: 'Community',
+                    link: '0',
+                    class: 'icon-sprite-menu _community',
+                    sub: null
+                }, {
+                    name: 'Share Yout Story',
+                    link: '0',
+                    class: 'icon-sprite-menu _shareyourstory',
+                    sub: null
+                }, {
+                    name: 'LOOP Squad',
+                    link: '0',
+                    class: 'icon-sprite-menu _loopsquad',
+                    sub: null
+                }, {
+                    name: 'LOOPiah',
+                    link: '0',
+                    class: 'icon-sprite-menu _loopiah',
+                    add_label: [{
+                        name_class: 'notif-user_poin',
+                        id: "label-putar",
+                        text: 'kesempatan putar',
+                    }],
+                    sub: null
+                }, {
+                    name: 'Redeem Center',
+                    link: '0',
+                    class: 'icon-sprite-menu _redeemcenter',
+                    sub: null
+                }, {
+                    name: 'Keluar',
+                    link: '0',
+                    class: 'icon-sprite-menu _signout',
+                    sub: null
+                }]
+            };
+            
+            var getMenuItemUser = function (itemData) {
+                var icons = $("<div>").addClass(itemData.class);
+                //buat dua kondisi ketika tidak ada sub maka ada div didalam a
+                if(itemData.add_label){
+                    var item = $("<li>")
+                            .append(
+                        $("<a>", {
+                            href: '#' + itemData.link,
+                            html: itemData.name
+                        }).prepend(
+                        icons
+                        ).append($("<div>").addClass(itemData.add_label[0].name_class).text(itemData.add_label[0].text)));   
+                    } else {
+                        var item = $("<li>")
+                                .append(
+                            $("<a>", {
+                                href: '#' + itemData.link,
+                                html: itemData.name
+                            }).prepend(
+                            icons
+                            ));   
+                    }       
+                
+                return item;
+            };
+
+            var $menuItemUser = $("#menu-user_nav");
+            $.each(menu_user.menu, function () {
+                $menuItemUser.append(
+                    getMenuItemUser(this)
+                );
+            });            
         </script>
     </body>
 </html>
