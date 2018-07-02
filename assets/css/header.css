@@ -164,11 +164,11 @@ ul{
     margin-right: 16px;
 }
 
-.dropdown-toggle .fa-angle-down{
+.dropdown .fa-angle-down{
     float: right;
     margin: 9px
 }
-.dropdown-toggle .fa-angle-up{
+.dropdown .fa-angle-up{
     float: right;
     margin: 9px
 }
@@ -275,6 +275,15 @@ ul{
     display: none;
 }
 
+.menu-users_nav{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: inherit;
+    top: 0;
+    right: 0;
+}
+
 .sidebar-nav {
     list-style: none;
     margin: 0;
@@ -282,7 +291,7 @@ ul{
     position: absolute;
     top: 0;
     width: 300px;     
-  right: 0;/* SZEROKOŚĆ ZAWARTOŚCI SIDEBARA */
+    right: 0;
 }
 
 .sidebar-nav li {
@@ -300,7 +309,7 @@ ul{
 }
 
 .sidebar-nav .dropdown-menu {
-    background-color: #efefef;             /* KOLOR BG DROPDOWNA */
+    background-color: #efefef;          
     border-radius: 0;
     border: none;
     box-shadow: none;
@@ -335,8 +344,9 @@ ul{
     line-height: 44px;
 }
 
-.sidebar-nav > .sidebar-home{
-    margin-top: 30px
+#menu-sidebar{
+    margin-top: 30px;
+    height: 106%
 }
 
 #main{
@@ -347,6 +357,7 @@ ul{
     margin-top: 70px;
 }
 .red-menu_nav{
+    display: block !important;
     background: red;
     bottom: 0;
     position: fixed !important;
@@ -664,6 +675,20 @@ top: -10px;
     margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
+}
+
+/* user menu */
+.avatar_user{
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    text-align: center;
+}
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 450px) {

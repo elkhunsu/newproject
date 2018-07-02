@@ -22,55 +22,8 @@
 
             <!-- Sidebar -->
             <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-                <ul class="nav sidebar-nav">
-                    <!--<li class="sidebar-brand">
-                        <a href="#">LOOP</a>
-                    </li> -->
-                    <li class="sidebar-home active">
-                        <a href="#"><div class="icon-sprite-menu _home"></div> Beranda</a>
-                    </li>
-                    <li>
-                        <a href="#"><div class="icon-sprite-menu _account"></div> Akun Saya</a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><div class="icon-sprite-menu _product"></div> Produk <span class="fa fa-angle-down"></span></a>
-                      <ul class="dropdown-menu" role="menu">
-                    <!--<li class="dropdown-header">Dropdown heading</li>-->
-                        <li><a href="#">Kartu Perdana</a></li>
-                        <li><a href="#">Info Tarif</a></li>
-                        <li><a href="#">Info Paket</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                        <a href="#"><div class="icon-sprite-menu _promo"></div> Promo</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><div class="icon-sprite-menu _activity"></div> Aktivitas <span class="fa fa-angle-down"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">LOOPiah</a></li>
-                            <li><a href="#">LOOP Kepo 2018</a></li>
-                            <li><a href="#">LOOP Squad 2018</a></li>
-                            <li><a href="#">Ensikloopedia X Ruangguru</a></li>
-                            <li><a href="#">HYPBarengLOOP</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><div class="icon-sprite-menu _article"></div> Artikel <span class="fa fa-angle-down"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Entertainment</a></li>
-                            <li><a href="#">Lifestyle & Fashion</a></li>
-                            <li><a href="#">LOOPspirasi</a></li>
-                            <li><a href="#">Sportainment</a></li>
-                            <li><a href="#">Techno & Games</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><div class="icon-sprite-menu _channel"></div> LOOP Channel</a>
-                    </li>
-                    <li class="red-menu_nav">
-                        <a href="#"><div class="icon-sprite-menu _buy"></div> BELI PAKET</a>
-                    </li>
-                </ul>
+                <ul id="menu-sidebar" class="nav sidebar-nav"></ul>
+
             </nav><!-- /#sidebar-wrapper -->
 
             <div id="main">
@@ -204,13 +157,28 @@
                         <li class="header-nav"></li>
                     </ul>
                     <div class="user-overlay_content">
+                        <div class="info-user">
+                            <div class="avatar_user">
+                                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                            </div>
+                            <div class="name_user">
+                                <span>KIM JAEHA</span>
+                            </div>
+                            <div class="level_user"></div>
+                            <div class="poin-users">
+                                <div class="loopiah"></div>
+                                <div class="loopsquad"></div>
+                            </div>
+                        </div>
                         <div class="menu-users">
-                            <ul class="nav sidebar-nav">
+                            <ul class="nav menu-users_nav">
                                 <li>
-                                <a href="#"><div class="icon-sprite-menu _home"></div> Beranda</a>
+                                <a href="#"><div class="icon-sprite-menu _home">
+                                    </div> Beranda</a>
                                 </li>
                                 <li>
-                                    <a href="#"><div class="icon-sprite-menu _account"></div> Akun Saya</a>
+                                    <a href="#"><div class="icon-sprite-menu _account">
+                                        </div> Akun Saya</a>
                                 </li>
                             </ul>
                         </div>
@@ -244,7 +212,6 @@
                 </div><!-- main-navigation -->
 
                 <div class="content-main">
-                    <ul id="menu"></ul>
                   <h2>Lorem ipsum dolor sit amet</h2>
                   <p>usu volumus persecuti id, vel ad mundi concludaturque, his vidit munere ad. Adolescens eloquentiam concludaturque duo ei, an autem deterruisset has, ut sit amet corpora qualisque. Pri graece postea rationibus in, case officiis contentiones cu pro, ius ea graece denique. Modus possim per at, te mel option recteque. An vel congue appetere, eum ad viderer reformidans. Eos sanctus corpora eu, ius laoreet indoctum ne.
 
@@ -351,14 +318,22 @@
         </script>
         <!-- Ending Script tag -->
         <script>
+            //menu dynamic with json data
             var data = {
                 menu: [{
-                    name: 'Croatia',
+                    name: 'Beranda',
                     link: '0',
+                    class: 'icon-sprite-menu _home',
                     sub: null
                 }, {
-                    name: 'England',
-                    link: '1',
+                    name: 'Akun Saya',
+                    link: '0',
+                    class: 'icon-sprite-menu _account',
+                    sub: null
+                }, {
+                    name: 'Produk',
+                    link: '#',
+                    class: 'icon-sprite-menu _product',
                     sub: [{
                         name: 'Arsenal',
                         link: '0-0',
@@ -373,41 +348,107 @@
                         sub: null
                     }]
                 }, {
-                    name: 'Spain',
-                    link: '2',
+                    name: 'Promo',
+                    link: '0',
+                    class: 'icon-sprite-menu _promo',
+                    sub: null
+                }, {
+                    name: 'Aktivitas',
+                    link: '#',
+                    class: 'icon-sprite-menu _activity',
                     sub: [{
-                        name: 'Barcelona',
-                        link: '2-0',
+                        name: 'LOOPiah',
+                        link: '0-0',
                         sub: null
                     }, {
-                        name: 'Real Madrid',
-                        link: '2-1',
+                        name: 'LOOP Kepo 2018',
+                        link: '0-1',
+                        sub: null
+                    }, {
+                        name: 'LOOP Squad 2018',
+                        link: '0-2',
+                        sub: null
+                    }, {
+                        name: 'Ensikloopedia X Ruangguru',
+                        link: '0-2',
+                        sub: null
+                    }, {
+                        name: 'HYPBarengLOOP',
+                        link: '0-2',
                         sub: null
                     }]
                 }, {
-                    name: 'Germany',
-                    link: '3',
+                    name: 'Artikel',
+                    link: '#',
+                    class: 'icon-sprite-menu _article',
                     sub: [{
-                        name: 'Bayern Munich',
-                        link: '3-1',
+                        name: 'Entertainment',
+                        link: '0-0',
                         sub: null
                     }, {
-                        name: 'Borrusia Dortmund',
-                        link: '3-2',
+                        name: 'Lifestyle & Fashion',
+                        link: '0-1',
+                        sub: null
+                    }, {
+                        name: 'LOOPspirasi',
+                        link: '0-2',
+                        sub: null
+                    }, {
+                        name: 'Sportainment',
+                        link: '0-2',
+                        sub: null
+                    }, {
+                        name: 'Techno & Games',
+                        link: '0-2',
                         sub: null
                     }]
+                }, {
+                    name: 'LOOP Channel',
+                    link: '0',
+                    class: 'icon-sprite-menu _channel',
+                    sub: null
+                }, {
+                    name: ' BELI PAKET',
+                    link: '0',
+                    class: 'icon-sprite-menu _buy',
+                    class_li: 'red-menu_nav',
+                    sub: null
                 }]
             };
             var getMenuItem = function (itemData) {
+                var icons = $("<div>").addClass(itemData.class);
                 //buat dua kondisi ketika tidak ada sub maka ada div didalam a
-                var item = $("<li>")
-                    .append(
-                $("<a>", {
-                    href: '#' + itemData.link,
-                    html: itemData.name
-                }));
+                if(itemData.class){
+                    var item = $("<li>")
+                        .append(
+                    $("<a>", {
+                        href: '#' + itemData.link,
+                        html: itemData.name
+                    }).prepend(
+                    icons
+                    ));   
+                } else {
+                    var item = $("<li>")
+                        .append(
+                    $("<a>", {
+                        href: '#' + itemData.link,
+                        html: itemData.name
+                    }));   
+                }
                 
-                
+                //untuk kondisi beli paket
+                if(itemData.class_li){
+                    var item = $("<li class="+itemData.class_li+">")
+                        .append(
+                    $("<a>", {
+                        href: '#' + itemData.link,
+                        html: itemData.name
+                    }));   
+                    setTimeout(function(){
+                        $("<div>").addClass(itemData.class).prependTo(".red-menu_nav a")
+                    }, 500);
+                }
+
                 if (itemData.sub) {
                     var subList = $("<ul class='dropdown-menu' role='menu'>");
                     $.each(itemData.sub, function () {
@@ -416,15 +457,15 @@
                     var divs = "";
                     var dropdown = $("<li class='dropdown'>")
                             .append(
-                                "<a class='dropdown-toggle' data-toggle='dropdown' href='"+itemData.link+"'>"+itemData.name+"</a>"
-                                );
+                                "<a class='dropdown-toggle' data-toggle='dropdown' href='"+itemData.link+"' aria-expanded='false'><div class='"+itemData.class+"'></div>"+itemData.name+"<span class='fa fa-angle-down'></span></a>"
+                            );
                     dropdown.append(subList);
                     return dropdown;
                 }
                 return item;
             };
 
-            var $menu = $("#menu");
+            var $menu = $("#menu-sidebar");
             $.each(data.menu, function () {
                 $menu.append(
                     getMenuItem(this)
