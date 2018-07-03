@@ -135,14 +135,14 @@
                                     </div>
                                     <div class="tab-pane" id="activity-content">
                                         <div class="tab-box_content">
-                                             <span class="title-activity">100 Koin Loopiah!</span>
+                                             <span class="title-activity"><span class="coin-loop_icon"></span>100 Koin Loopiah!</span>
                                              <span class="content-activity">Selamat kamu mendapatkan 100 Koin LOOPiah dari login harian di loop.co.id</span>
-                                            <span class="time-activity">12 Maret 2018 14:15 WIB</span>
+                                            <span class="time-activity"><i class="fa fa-clock-o" aria-hidden="true"></i> 12 Maret 2018 14:15 WIB</span>
                                         </div>
                                         <div class="tab-box_content">
-                                             <span class="title-activity">100 Koin Loopiah!</span>
+                                             <span class="title-activity"><span class="coin-loop_icon"></span>100 Koin Loopiah!</span>
                                              <span class="content-activity">Selamat kamu mendapatkan 100 Koin LOOPiah dari login harian di loop.co.id</span>
-                                            <span class="time-activity">12 Maret 2018 14:15 WIB</span>
+                                            <span class="time-activity"><i class="fa fa-clock-o" aria-hidden="true"></i> 12 Maret 2018 14:15 WIB</span>
                                         </div>
                                         <div class="btn btn-primary load-more">Aktivitas Lainnya</div>
                                     </div>
@@ -159,7 +159,7 @@
                     <div class="user-overlay_content">
                         <div class="info-user">
                             <div class="avatar_user">
-                                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+                                <span class="image-avatar"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar"><span class="badge-level _level1"></span></span>
                             </div>
                             <div class="name-user">
                                 <span>KIM JAEHA</span>
@@ -170,11 +170,11 @@
                             <div class="poin-users">
                                 <div class="loopiah">
                                     <span>LOOPiah Koin</span>
-                                    <span>53.200</span>
+                                    <span><span class="coin-loop_icon"></span> 53.200</span>
                                 </div>
                                 <div class="loopsquad">
                                     <span>LOOPiah Koin</span>
-                                    <span>53.200</span>
+                                    <span><span class="coin-loop_icon"></span> 53.200</span>
                                 </div>
                             </div>
                         </div>
@@ -192,11 +192,13 @@
                             <span></span>
                             <span></span>
                         </li>
+<!--
                         <li class="logo-loop">
                             <a href="http://loop.co.id">
                              <img class="img-logo" src="./assets/images/logo-loop.png" alt="loop.co.id youth digital portal">
                             </a>
                         </li>
+-->
                         <li class="search-bar">
                             <i class="fa fa-search"></i>
                         </li>
@@ -301,6 +303,7 @@
                         var x = "99+";
                     } 
                     $('#notif-count').text(x);
+                    $('#putar-notif .putar-badge').text(x);
                 }
                 
                 $(window).scroll(function() {
@@ -316,6 +319,11 @@
                         var x = $('#notif-count').text();
                         alertNotif(x);
                 },5000);
+                
+                setInterval(function(){
+                        var y = $('#putar-notif .putar-badge').text();
+                        alertNotif(x);
+                },6000);
             })
         </script>
         <!-- Ending Script tag -->
@@ -538,7 +546,7 @@
                             html: itemData.name
                         }).prepend(
                         icons
-                        ).append($("<div>").addClass(itemData.add_label[0].name_class).text(itemData.add_label[0].text)));   
+                        ).append($("<div id='putar-notif'>").addClass(itemData.add_label[0].name_class).text(itemData.add_label[0].text).append($('<div>').addClass('putar-badge').text("1")))); 
                     } else {
                         var item = $("<li>")
                                 .append(
