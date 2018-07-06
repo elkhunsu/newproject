@@ -4,8 +4,8 @@
         <!-- meta start -->
         <title>LOOP</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1.0, width=device-width">
-        
+<!--        <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- ending meta -->
 
         <!-- Bootstrap and Other CSS -->
@@ -18,15 +18,42 @@
     </head>
 
     <body>
+        <div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul id="menu-sidebar" class="nav sidebar-nav"></ul>
+
+        </nav><!-- /#sidebar-wrapper -->
+      <header class="main-navigation">
+        <ul class="nav-content open-nav" role="navigation">
+            <li id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+    
+            <li class="logo-loop">
+                <a href="http://loop.co.id">
+                 <img class="img-logo" src="./assets/images/logo-loop.png" alt="loop.co.id youth digital portal">
+                </a>
+            </li>
+    
+            <li class="search-bar">
+                <i class="fa fa-search"></i>
+            </li>
+            <li class="notif-badge">
+                <a href="#" class="button-badge">
+                    <span class="badge alert" id="notif-count">1</span>
+                </a>
+            </li>
+            <li class="users-sign">
+                <i class="fa fa-user-o fa-bold"></i>
+            </li>
+        </ul>
+      </header>
         <div id="wrapper">
-            <div class="overlay"></div>
-
-            <!-- Sidebar -->
-            <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-                <ul id="menu-sidebar" class="nav sidebar-nav"></ul>
-
-            </nav><!-- /#sidebar-wrapper -->
-
             <div id="main">
                 <div class="notif-overlay">
                         <ul class="nav-content block-nav">
@@ -185,35 +212,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="main-navigation">
-                    <ul class="nav-content open-nav" role="navigation">
-                        <li id="burger-menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </li>
-<!--
-                        <li class="logo-loop">
-                            <a href="http://loop.co.id">
-                             <img class="img-logo" src="./assets/images/logo-loop.png" alt="loop.co.id youth digital portal">
-                            </a>
-                        </li>
--->
-                        <li class="search-bar">
-                            <i class="fa fa-search"></i>
-                        </li>
-                        <li class="notif-badge">
-                            <a href="#" class="button-badge">
-                                <span class="badge alert" id="notif-count">1</span>
-                            </a>
-                        </li>
-                        <li class="users-sign">
-                            <i class="fa fa-user-o fa-bold"></i>
-                        </li>
-                    </ul>
-                </div><!-- main-navigation -->
-
                 <div class="content-main">
                   <h2>Lorem ipsum dolor sit amet</h2>
                   <p>usu volumus persecuti id, vel ad mundi concludaturque, his vidit munere ad. Adolescens eloquentiam concludaturque duo ei, an autem deterruisset has, ut sit amet corpora qualisque. Pri graece postea rationibus in, case officiis contentiones cu pro, ius ea graece denique. Modus possim per at, te mel option recteque. An vel congue appetere, eum ad viderer reformidans. Eos sanctus corpora eu, ius laoreet indoctum ne.
@@ -426,6 +424,11 @@
                     sub: null
                 }]
             };
+            var datas = JSON.stringify(data);
+            localStorage.setItem("menuList", datas);
+            var menuList = JSON.parse(localStorage.getItem("menuList"));
+//            console.log(getItem);
+            
             var getMenuItem = function (itemData) {
                 var icons = $("<div>").addClass(itemData.class);
                 //buat dua kondisi ketika tidak ada sub maka ada div didalam a
@@ -477,7 +480,7 @@
             };
 
             var $menu = $("#menu-sidebar");
-            $.each(data.menu, function () {
+            $.each(menuList.menu, function () {
                 $menu.append(
                     getMenuItem(this)
                 );
@@ -535,7 +538,10 @@
                     sub: null
                 }]
             };
-            
+            var menu_user = JSON.stringify(menu_user);
+            localStorage.setItem("userMenuList", menu_user);
+            var userMenuList = JSON.parse(localStorage.getItem("userMenuList"));
+
             var getMenuItemUser = function (itemData) {
                 var icons = $("<div>").addClass(itemData.class);
                 //buat dua kondisi ketika tidak ada sub maka ada div didalam a
@@ -563,7 +569,7 @@
             };
 
             var $menuItemUser = $("#menu-user_nav");
-            $.each(menu_user.menu, function () {
+            $.each(userMenuList.menu, function () {
                 $menuItemUser.append(
                     getMenuItemUser(this)
                 );

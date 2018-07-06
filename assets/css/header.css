@@ -53,6 +53,11 @@ body{
 
 .main-navigation.open{
     position: unset;
+    overflow: hidden;
+}
+
+.main-navigation.open .nav-content{
+    margin-left: 288px
 }
 
 .main-navigation.open > ul > li{
@@ -66,7 +71,7 @@ body{
   -webkit-flex-grow: 1;
   -webkit-flex-shrink: 1;
 */
-  margin: 15px;
+  margin: 5px;
   overflow: hidden;
 }
 
