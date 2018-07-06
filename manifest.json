@@ -1,0 +1,19 @@
+{
+    "short_name": "Nani",
+    "name": "Nani Apps",
+    "icons": [
+        {
+            "src": "/images/icons/Icon-48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },{
+            "src": "/images/icons/Icon-72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        }
+    ],
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "landscape",
+    "theme_color": "#3367D6"
+}
