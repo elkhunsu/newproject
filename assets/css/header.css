@@ -57,7 +57,8 @@ body{
 }
 
 .main-navigation.open .nav-content{
-    margin-left: 288px
+    margin-left: 288px;
+    
 }
 
 .main-navigation.open > ul > li{
